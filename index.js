@@ -3,9 +3,10 @@ const projects = require("./data/routers/projects")
 const actions =  require("./data/routers/actions")
 const server = express()
 const logger = require("./data/Middleware/logger")
+const cors = require("cors")
 
 server.use(express.json())
-
+server.use(cors())
 server.use(logger())
 
 server.get("/", (req, res) => {

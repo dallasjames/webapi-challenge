@@ -16,8 +16,9 @@ router.get("/:id", (req, res) => {
         .catch(err => res.status(500).json({error: "internal error come back later"}))
 })
 
-router.post('/', (req, res) => {
-    action.insert(req.body)
+router.post('/:id', (req, res) => {
+    const project_id = req.params.id
+    action.insert(req.body, project_id)
         .then(data => res.status(200).json(data))
         .catch(err => res.status(500).json({ message: 'Could not create action' }));
 });
@@ -33,7 +34,7 @@ router.put("/:id", (req, res) => {
     let id = req.params.id
     action.update(id, req.body)
         .then(project => res.status(200).json(project))
-        .catch(err => res.status(500).json({error: "not finsihed yet"}))
+        .catch(err => res.status(500).json({error: err}))
 })
 
 module.exports = router
