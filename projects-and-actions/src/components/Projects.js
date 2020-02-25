@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import ProjectCard from "./ProjectCard"
+import { NavLink } from "react-router-dom"
 
 function Projects(props) {
     const [projects, setProjects] = useState([])
-    const [id, setID] = useState()
 
     useEffect(() => {
         axios
@@ -25,10 +24,11 @@ function Projects(props) {
         <br/>
         {projects.map(function(project, i) {
             return (
-                <div className="project" key={i} onClick={setID(project.id)}>
+                <div className="project" key={i}>
                 <h2>{project.name}</h2>
                 <p>{project.description}</p>
                 <p>{project.completed.toString()}</p>
+                <NavLink to="/1">See Details</NavLink>
                 </div>
             )
         })}

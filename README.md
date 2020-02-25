@@ -39,15 +39,15 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.
 
 - [ ] Mention two parts of Express that you learned about this week.
-    Routing made easy, makes evertyhing easy
+    express.json(message: "lets you create json responces") express.Router("lets you create a router outside the index file")
 - [ ] Describe Middleware?
-    happens between bits of code running helps with logging and finding errors
+    logs what goes on during calls to server and helps with with debugging
 - [ ] Describe a Resource?
-    libraries pulled in for help with the code like express or dotenv
+    third-party libraries and custom middleware to streamline making and debugging a server also helps with web security
 - [ ] What can the API return to help clients know if a request was successful?
-    resonces
+    status code(200, 201, 204 ect.)
 - [ ] How can we partition our application into sub-applications?
-    with server.use and express.Router
+    express.Router() and exporting the router does this then on index server.use("/route", thatRouterFile)
 ## Minimum Viable Product
 
 - [ ] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.

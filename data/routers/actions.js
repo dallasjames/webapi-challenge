@@ -16,8 +16,7 @@ router.get("/:id", (req, res) => {
         .catch(err => res.status(500).json({error: "internal error come back later"}))
 })
 
-router.post('/:id', (req, res) => {
-    const project_id = req.params.id
+router.post('/', (req, res) => {
     action.insert(req.body, project_id)
         .then(data => res.status(200).json(data))
         .catch(err => res.status(500).json({ message: 'Could not create action' }));

@@ -8,13 +8,13 @@ function ProjectCard(props) {
         axios
             .get(`http://localhost:8080/projects/${params.id}`)
             .then(res => {
-                console.log(res)
+                console.log(res.data)
                 setCard(res.data)
             })
             .catch(err => {
                 console.log(err)
             })
-    }, [])
+    }, [params.id])
     return (
         <>
         <h1>Project Details</h1>
